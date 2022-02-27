@@ -27,7 +27,7 @@
     }
     
     if(!doc.querySelector('.pane.info')){
-        console.error('[error] panel info not found!')
+        console.error('[error] panel info not found!');
         return;
     }
     
