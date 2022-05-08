@@ -1,7 +1,7 @@
 // ==UserScript==
 // @namespace   seiya-anidb-extra-links
 // @name        AniDB anime entries extra links
-// @version     1.7.75
+// @version     1.7.77
 // @description AniDB extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
@@ -75,7 +75,7 @@
         '181,1900,208,209,2258,2343,2365,4,484,521,539,822,84,930',
         '1460,815,816,921',
         '1105,1386,1387,1389,1390,1391,1642,2484,2491,2544,33,404,599,809,893',
-    ].join(',')
+    ].join(',');
     
     
     const links = [
@@ -85,8 +85,8 @@
         { name: 'SukebeiV2',         domain: 'sukebei.nyaa.si', icon: '/static/favicon.png',              urlPrefix: '/?c=1_1&q=' },
         { name: 'AnimeTosho-Series', domain: 'animetosho.org',  icon: '/favicon.ico',                     urlPrefix: `/series/anidb${titleId}#` },
         { name: 'AnimeTosho-Search', domain: 'animetosho.org',  icon: '/favicon.ico',                     urlPrefix: '/search?q=' },
-        { name: 'RuTracker',         domain: 'rutracker.org',   icon: '/favicon.ico',                     urlPrefix: `/forum/search.php?f={rtSec}&nm=` },
-        { name: 'PornoLab',          domain: 'pornolab.net',    icon: '/favicon.ico',                     urlPrefix: `/forum/search.php?f={plSec}&nm=` },
+        { name: 'RuTracker',         domain: 'rutracker.org',   icon: '/favicon.ico',                     urlPrefix: `/forum/search.php?f=${rtSec}&nm=` },
+        { name: 'PornoLab',          domain: 'pornolab.net',    icon: '/favicon.ico',                     urlPrefix: `/forum/search.php?f=${plSec}&nm=` },
         // { name: '', domain: '', icon: '', urlPrefix: '' },
     ];
     
