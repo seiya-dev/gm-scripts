@@ -1,7 +1,7 @@
 // ==UserScript==
 // @namespace   seiya-anidb-extra-links
 // @name        AniDB anime entries extra links
-// @version     1.7.77
+// @version     1.8.80
 // @description AniDB extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
@@ -11,9 +11,9 @@
 // ==/UserScript==
 
 (()=>{
-    
+
     const doc = window.document;
-    
+
     function quoteattr(s) {
         return ('' + s)
             .replace(/`/g, '\'')
@@ -25,15 +25,15 @@
             .replace(/\r\n/g, '&#13;')
             .replace(/[\r\n]/g, '&#13;');
     }
-    
+
     if(!doc.querySelector('.pane.info')){
         console.error('[error] panel info not found!')
         return;
     }
-    
+
     let reOdd = false;
     let isOdd = true;
-    
+
     if(!doc.querySelector('.pane.info .resources')){
         const afterEl = doc.querySelector('.pane.info .tags') ? '.pane.info .tags' : '.pane.info .year';
         const trEl = doc.createElement('tr');
@@ -42,7 +42,7 @@
         doc.querySelector(afterEl).insertAdjacentElement('afterend', trEl);
         reOdd = true;
     }
-    
+
     if(reOdd){
         const trSel = doc.querySelectorAll('.pane.info .g_definitionlist > table > tbody > tr');
         for(const e of trSel){
@@ -58,17 +58,17 @@
             }
         }
     }
-    
+
     const targetEl = '.pane.info .resources .value .group.thirdparty.english';
-    
+
     if(!doc.querySelector(targetEl)){
         const divEl = doc.createElement('div');
         divEl.classList.add('group','thirdparty','english');
         doc.querySelector('.pane.info .resources .value').insertAdjacentElement('beforeend', divEl);
     }
-    
+
     const titleEl   = doc.querySelector('.pane.info .romaji .value span');
-    const titleText = titleEl.textContent.replace(/Gekijouban/,'').replace(/ +/g, ' ').trim();
+    const titleText = titleEl.textContent.replace(/Gekijouban/,'').replace(/\(\d{4}\)/, '').replace(/ +/g, ' ').trim();
     const titleId   = doc.querySelector('.shortlink').textContent.replace(/a/, '.');
     const plSec     = '1745,1679,1740,1834,1752,1760,1781,1711,1296';
     const rtSec     = [
@@ -76,8 +76,7 @@
         '1460,815,816,921',
         '1105,1386,1387,1389,1390,1391,1642,2484,2491,2544,33,404,599,809,893',
     ].join(',');
-    
-    
+
     const links = [
         { name: 'AniList',           domain: 'anilist.co',      icon: '/img/icons/favicon-32x32.png',     urlPrefix: '/search/anime?sort=SEARCH_MATCH&search=' },
         { name: 'Shikimori',         domain: 'shikimori.one',   icon: '/favicons/android-icon-36x36.png', urlPrefix: '/animes?search=' },
@@ -89,11 +88,11 @@
         { name: 'PornoLab',          domain: 'pornolab.net',    icon: '/favicon.ico',                     urlPrefix: `/forum/search.php?f=${plSec}&nm=` },
         // { name: '', domain: '', icon: '', urlPrefix: '' },
     ];
-    
+
     const extraLinks = doc.createElement('div');
     extraLinks.classList.add('icons');
     extraLinks.innerHTML = '';
-    
+
     for(const icon of links){
         const classList = `i_icon i_resource_${icon.name} brand`;
         const uriHref = `https://${icon.domain}${icon.urlPrefix}${quoteattr(titleText)}`;
@@ -102,12 +101,12 @@
             + `<span class="text">${icon.name}</span>`
             + '</a>';
     }
-    
+
     doc.querySelector(targetEl).insertAdjacentElement('beforeend', extraLinks);
-    
+
     const styleEl = document.createElement('style');
     doc.head.appendChild(styleEl);
-    
+
     for(const icon of links){
         styleEl.sheet.insertRule(
             `.i_resource_${icon.name}{`
@@ -118,5 +117,5 @@
             + '}'
         );
     }
-    
+
 })();
