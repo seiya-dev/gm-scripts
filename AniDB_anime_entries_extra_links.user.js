@@ -79,7 +79,7 @@
 
     const links = [
         { name: 'AniList',           domain: 'anilist.co',      icon: '/img/icons/favicon-32x32.png',     urlPrefix: '/search/anime?sort=SEARCH_MATCH&search=' },
-        { name: 'Shikimori',         domain: 'shikimori.one',   icon: '/favicons/android-icon-36x36.png', urlPrefix: '/animes?search=' },
+        { name: 'Shikimori',         domain: 'shikimori.me',    icon: '/favicons/android-icon-36x36.png', urlPrefix: '/animes?search=' },
         { name: 'NyaaV2',            domain: 'nyaa.si',         icon: '/static/favicon.png',              urlPrefix: '/?c=1_0&q=' },
         { name: 'SukebeiV2',         domain: 'sukebei.nyaa.si', icon: '/static/favicon.png',              urlPrefix: '/?c=1_1&q=' },
         { name: 'AnimeTosho-Series', domain: 'animetosho.org',  icon: '/favicon.ico',                     urlPrefix: `/series/anidb${titleId}#` },
