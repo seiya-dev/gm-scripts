@@ -1,7 +1,7 @@
 // ==UserScript==
 // @namespace   seiya-anidb-extra-links
 // @name        AniDB anime entries extra links
-// @version     1.8.81
+// @version     1.9.82
 // @description AniDB extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
@@ -82,6 +82,7 @@
         { name: 'Shikimori',         domain: 'shikimori.me',    icon: '/favicons/android-icon-36x36.png', urlPrefix: '/animes?search=' },
         { name: 'NyaaV2',            domain: 'nyaa.si',         icon: '/static/favicon.png',              urlPrefix: '/?c=1_0&q=' },
         { name: 'SukebeiV2',         domain: 'sukebei.nyaa.si', icon: '/static/favicon.png',              urlPrefix: '/?c=1_1&q=' },
+        { name: 'AniDex',            domain: 'anidex.info',     icon: '/favicon.ico',                     urlPrefix: '/?q=' },
         { name: 'AnimeTosho-Series', domain: 'animetosho.org',  icon: '/favicon.ico',                     urlPrefix: `/series/anidb${titleId}#` },
         { name: 'AnimeTosho-Search', domain: 'animetosho.org',  icon: '/favicon.ico',                     urlPrefix: '/search?q=' },
         { name: 'RuTracker',         domain: 'rutracker.org',   icon: '/favicon.ico',                     urlPrefix: `/forum/search.php?f=${rtSec}&nm=` },
