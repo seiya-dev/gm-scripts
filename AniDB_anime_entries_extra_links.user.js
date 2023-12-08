@@ -1,10 +1,11 @@
 // ==UserScript==
 // @namespace   seiya-anidb-extra-links
 // @name        AniDB anime entries extra links
-// @version     1.9.82
+// @version     1.9.83
 // @description AniDB extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
+// @icon          https://static.anidb.net/favicon.ico
 // @match       https://anidb.net/anime/*
 // @grant       none
 // @run-at      document-end
