@@ -1,7 +1,7 @@
 // ==UserScript==
 // @namespace   seiya-anidb-extra-links
 // @name        AniDB anime entries extra links
-// @version     1.9.83
+// @version     1.10.85
 // @description AniDB extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
@@ -83,10 +83,10 @@
         { name: 'Shikimori',         domain: 'shikimori.me',    icon: '/favicons/android-icon-36x36.png', urlPrefix: '/animes?search=' },
         { name: 'NyaaV2',            domain: 'nyaa.si',         icon: '/static/favicon.png',              urlPrefix: '/?c=1_0&q=' },
         { name: 'SukebeiV2',         domain: 'sukebei.nyaa.si', icon: '/static/favicon.png',              urlPrefix: '/?c=1_1&q=' },
-        { name: 'AniDex',            domain: 'anidex.info',     icon: '/favicon.ico',                     urlPrefix: '/?q=' },
+        { name: 'AniDex',            domain: 'anidex.info',     icon: 'i.imgur.com/vApI8cH.png',          urlPrefix: '/?q=' },
         { name: 'AnimeTosho-Series', domain: 'animetosho.org',  icon: '/favicon.ico',                     urlPrefix: `/series/anidb${titleId}#` },
         { name: 'AnimeTosho-Search', domain: 'animetosho.org',  icon: '/favicon.ico',                     urlPrefix: '/search?q=' },
-        { name: 'RuTracker',         domain: 'rutracker.org',   icon: '/favicon.ico',                     urlPrefix: `/forum/search.php?f=${rtSec}&nm=` },
+        { name: 'RuTracker',         domain: 'rutracker.org',   icon: 'i.imgur.com/W5VLN29.png',          urlPrefix: `/forum/search.php?f=${rtSec}&nm=` },
         { name: 'PornoLab',          domain: 'pornolab.net',    icon: '/favicon.ico',                     urlPrefix: `/forum/search.php?f=${plSec}&nm=` },
         // { name: '', domain: '', icon: '', urlPrefix: '' },
     ];
@@ -111,8 +111,9 @@
 
     for(const icon of links){
         styleEl.sheet.insertRule(
+            const icoUrl = !icon.icon.match(/^\//) ? icon.icon : `${icon.domain}${icon.icon}`;
             `.i_resource_${icon.name}{`
-            + `    background-image: url('https://${icon.domain}${icon.icon}');`
+            + `    background-image: url('https://${icoUrl}');`
             + '    background-size: contain;'
             + '    height: 16px;'
             + '    width: 16px;'
