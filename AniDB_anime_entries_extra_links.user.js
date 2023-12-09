@@ -1,7 +1,7 @@
 // ==UserScript==
 // @namespace   seiya-anidb-extra-links
 // @name        AniDB anime entries extra links
-// @version     1.10.85
+// @version     1.10.86
 // @description AniDB extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
@@ -110,8 +110,8 @@
     doc.head.appendChild(styleEl);
 
     for(const icon of links){
+        const icoUrl = !icon.icon.match(/^\//) ? icon.icon : `${icon.domain}${icon.icon}`;
         styleEl.sheet.insertRule(
-            const icoUrl = !icon.icon.match(/^\//) ? icon.icon : `${icon.domain}${icon.icon}`;
             `.i_resource_${icon.name}{`
             + `    background-image: url('https://${icoUrl}');`
             + '    background-size: contain;'
