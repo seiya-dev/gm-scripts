@@ -1,7 +1,7 @@
 // ==UserScript==
 // @namespace   seiya-anidb-extra-links
 // @name        AniDB anime entries extra links
-// @version     1.11.90
+// @version     1.11.91
 // @description AniDB extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
@@ -72,7 +72,6 @@
     const titleText = titleEl.textContent.replace(/Gekijouban/,'').replace(/\(\d{4}\)/, '').replace(/ +/g, ' ').trim();
     const titleId   = doc.querySelector('.shortlink').textContent.replace(/a/, '.');
     
-    // rutracker
     const rtSec     = [
         '181,1900,208,209,2258,2343,2365,4,484,521,539,822,84,930',
         '1460,815,816,921',
@@ -88,7 +87,6 @@
         { name: 'AnimeTosho-Series', domain: 'animetosho.org',  icon: 'i.imgur.com/bMpKDYG.png', urlPrefix: `/series/anidb${titleId}#` },
         { name: 'AnimeTosho-Search', domain: 'animetosho.org',  icon: 'i.imgur.com/bMpKDYG.png', urlPrefix: '/search?q=' },
         { name: 'RuTracker',         domain: 'rutracker.org',   icon: 'i.imgur.com/W5VLN29.png', urlPrefix: `/forum/search.php?f=${rtSec}&nm=` },
-        // { name: '', domain: '', icon: '', urlPrefix: '' },
     ];
 
     const extraLinks = doc.createElement('div');
