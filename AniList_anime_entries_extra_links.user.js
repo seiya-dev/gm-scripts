@@ -1,7 +1,7 @@
 // ==UserScript==
 // @namespace   seiya-anilist-extra-links
 // @name        AniList anime entries extra links
-// @version     0.1.20
+// @version     1.0.50
 // @description AniList extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
@@ -15,25 +15,45 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function quoteattr(s) {
+    return ('' + s)
+        .replace(/`/g, '\'')
+        .replace(/&/g, '&amp;')
+        .replace(/'/g, '&apos;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\r\n/g, '&#13;')
+        .replace(/[\r\n]/g, '&#13;');
+}
+
+const doc = window.document;
+let pathname = window.location.pathname;
+
 (async () => {
+    
+    window.addEventListener('click', async () => {
+        if (window.location.pathname != pathname) {
+            pathname = window.location.pathname;
+            await loadCustomLinks();
+        }
+    });
+    
+    window.addEventListener('popstate', async () => {
+        await loadCustomLinks();
+    });
+    
+    await loadCustomLinks();
+})();
 
-    const doc = window.document;
-
-    function quoteattr(s) {
-        return ('' + s)
-            .replace(/`/g, '\'')
-            .replace(/&/g, '&amp;')
-            .replace(/'/g, '&apos;')
-            .replace(/"/g, '&quot;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/\r\n/g, '&#13;')
-            .replace(/[\r\n]/g, '&#13;');
-    }
-
+async function loadCustomLinks(){
     do {
         await sleep(100);
     } while (doc.querySelector('div.content') === null);
+    
+    if(doc.querySelector('.ext-icons') !== null){
+        doc.querySelector('.ext-icons').remove();
+    }
 
     const dataSets = doc.querySelectorAll('.data-set');
     let titleText = '';
@@ -83,7 +103,7 @@ function sleep(ms) {
     const styleEl = document.createElement('style');
     styleEl.id = 'customLinks';
     
-    if(document.querySelector('#customLinks') !== null){
+    if(doc.querySelector('#customLinks') !== null){
         return;
     }
     
@@ -114,5 +134,4 @@ function sleep(ms) {
             + `}`
         );
     }
-
-})();
+}
