@@ -1,11 +1,11 @@
 // ==UserScript==
 // @namespace   seiya-anidb-extra-links
 // @name        AniDB anime entries extra links
-// @version     1.10.86
+// @version     1.11.90
 // @description AniDB extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
-// @icon          https://static.anidb.net/favicon.ico
+// @icon        https://static.anidb.net/favicon.ico
 // @match       https://anidb.net/anime/*
 // @grant       none
 // @run-at      document-end
@@ -71,7 +71,8 @@
     const titleEl   = doc.querySelector('.pane.info .romaji .value span');
     const titleText = titleEl.textContent.replace(/Gekijouban/,'').replace(/\(\d{4}\)/, '').replace(/ +/g, ' ').trim();
     const titleId   = doc.querySelector('.shortlink').textContent.replace(/a/, '.');
-    const plSec     = '1745,1679,1740,1834,1752,1760,1781,1711,1296';
+    
+    // rutracker
     const rtSec     = [
         '181,1900,208,209,2258,2343,2365,4,484,521,539,822,84,930',
         '1460,815,816,921',
@@ -79,15 +80,14 @@
     ].join(',');
 
     const links = [
-        { name: 'AniList',           domain: 'anilist.co',      icon: '/img/icons/favicon-32x32.png',     urlPrefix: '/search/anime?sort=SEARCH_MATCH&search=' },
-        { name: 'Shikimori',         domain: 'shikimori.me',    icon: '/favicons/android-icon-36x36.png', urlPrefix: '/animes?search=' },
-        { name: 'NyaaV2',            domain: 'nyaa.si',         icon: '/static/favicon.png',              urlPrefix: '/?c=1_0&q=' },
-        { name: 'SukebeiV2',         domain: 'sukebei.nyaa.si', icon: '/static/favicon.png',              urlPrefix: '/?c=1_1&q=' },
-        { name: 'AniDex',            domain: 'anidex.info',     icon: 'i.imgur.com/vApI8cH.png',          urlPrefix: '/?q=' },
-        { name: 'AnimeTosho-Series', domain: 'animetosho.org',  icon: '/favicon.ico',                     urlPrefix: `/series/anidb${titleId}#` },
-        { name: 'AnimeTosho-Search', domain: 'animetosho.org',  icon: '/favicon.ico',                     urlPrefix: '/search?q=' },
-        { name: 'RuTracker',         domain: 'rutracker.org',   icon: 'i.imgur.com/W5VLN29.png',          urlPrefix: `/forum/search.php?f=${rtSec}&nm=` },
-        { name: 'PornoLab',          domain: 'pornolab.net',    icon: '/favicon.ico',                     urlPrefix: `/forum/search.php?f=${plSec}&nm=` },
+        { name: 'AniList',           domain: 'anilist.co',      icon: 'i.imgur.com/2Dlvrnj.png', urlPrefix: '/search/anime?sort=SEARCH_MATCH&search=' },
+        { name: 'Shikimori',         domain: 'shikimori.me',    icon: 'i.imgur.com/FCEAKfv.png', urlPrefix: '/animes?search=' },
+        { name: 'NyaaV2',            domain: 'nyaa.si',         icon: 'i.imgur.com/rGFiDrK.png', urlPrefix: '/?c=1_0&q=' },
+        { name: 'SukebeiV2',         domain: 'sukebei.nyaa.si', icon: 'i.imgur.com/7O8uBsn.png', urlPrefix: '/?c=1_1&q=' },
+        { name: 'AniDex',            domain: 'anidex.info',     icon: 'i.imgur.com/vApI8cH.png', urlPrefix: '/?q=' },
+        { name: 'AnimeTosho-Series', domain: 'animetosho.org',  icon: 'i.imgur.com/bMpKDYG.png', urlPrefix: `/series/anidb${titleId}#` },
+        { name: 'AnimeTosho-Search', domain: 'animetosho.org',  icon: 'i.imgur.com/bMpKDYG.png', urlPrefix: '/search?q=' },
+        { name: 'RuTracker',         domain: 'rutracker.org',   icon: 'i.imgur.com/W5VLN29.png', urlPrefix: `/forum/search.php?f=${rtSec}&nm=` },
         // { name: '', domain: '', icon: '', urlPrefix: '' },
     ];
 
