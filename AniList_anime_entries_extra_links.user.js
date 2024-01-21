@@ -1,7 +1,7 @@
 // ==UserScript==
 // @namespace   seiya-anilist-extra-links
 // @name        AniList anime entries extra links
-// @version     1.0.51
+// @version     1.0.52
 // @description AniList extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
@@ -100,14 +100,13 @@ async function loadCustomLinks(){
 
     const targetInsert = '.page-content .header .content h1';
     doc.querySelector(targetInsert).insertAdjacentElement('afterend', extraLinks);
-
-    const styleEl = document.createElement('style');
-    styleEl.id = 'customLinks';
     
     if(doc.querySelector('#customLinks') !== null){
         return;
     }
     
+    const styleEl = document.createElement('style');
+    styleEl.id = 'customLinks';
     doc.head.appendChild(styleEl);
     
     styleEl.sheet.insertRule(''
