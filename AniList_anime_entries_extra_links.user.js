@@ -1,7 +1,7 @@
 // ==UserScript==
 // @namespace   seiya-anilist-extra-links
 // @name        AniList anime entries extra links
-// @version     1.0.50
+// @version     1.0.51
 // @description AniList extra links for anime entries
 // @author      Seiya
 // @homepageURL https://twitter.com/seiya_loveless
@@ -77,6 +77,7 @@ async function loadCustomLinks(){
 
     const links = [
         { name: 'AniDB',             domain: 'anidb.net',       icon: 'i.imgur.com/n28vPkj.png', urlPrefix: '/anime/?do.search=1&adb.search=' },
+        { name: 'MyAnimeList',       domain: 'myanimelist.net', icon: 'i.imgur.com/be5KyDN.png', urlPrefix: '/anime.php?cat=anime&q=' },
         { name: 'Shikimori',         domain: 'shikimori.me',    icon: 'i.imgur.com/FCEAKfv.png', urlPrefix: '/animes?search=' },
         { name: 'NyaaV2',            domain: 'nyaa.si',         icon: 'i.imgur.com/rGFiDrK.png', urlPrefix: '/?c=1_0&q=' },
         { name: 'SukebeiV2',         domain: 'sukebei.nyaa.si', icon: 'i.imgur.com/7O8uBsn.png', urlPrefix: '/?c=1_1&q=' },
